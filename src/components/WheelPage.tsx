@@ -43,10 +43,20 @@ export const WheelPage: React.FC = () => {
 
     const audio = new Audio(task.audioPath)
     audioRef.current = audio
-    console.log(task.audioPath)
-    audio.play().catch((error) => {
-      console.error('Error playing audio:', error)
+
+    // Add event listeners for better error handling
+    audio.addEventListener('error', (e) => {
+      console.error('Error loading audio:', e, 'Audio path:', task.audioPath)
     })
+
+    audio.addEventListener('canplaythrough', () => {
+      audio.play().catch((error) => {
+        console.error('Error playing audio:', error)
+      })
+    })
+
+    // Start loading the audio
+    audio.load()
   }
 
   const drawWheel = (currentRotation: number) => {
