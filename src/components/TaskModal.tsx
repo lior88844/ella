@@ -1,5 +1,6 @@
 import React from 'react'
 import { Task } from '../types/types'
+import { useNavigate } from 'react-router-dom'
 
 interface TaskModalProps {
   task: Task
@@ -12,6 +13,14 @@ export const TaskModal: React.FC<TaskModalProps> = ({
   onSpinAgain,
   onGoHome,
 }) => {
+  const navigate = useNavigate()
+  const baseUrl = import.meta.env.BASE_URL
+
+  const handleGoHome = () => {
+    onGoHome()
+    navigate(baseUrl || '/')
+  }
+
   return (
     <div className="modal-overlay">
       <div className="modal-content">
@@ -24,7 +33,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
           <button className="modal-button spin-again" onClick={onSpinAgain}>
             סיבוב נוסף
           </button>
-          <button className="modal-button go-home" onClick={onGoHome}>
+          <button className="modal-button go-home" onClick={handleGoHome}>
             דף הבית
           </button>
         </div>

@@ -20,6 +20,9 @@ const COLORS = [
   '#1ABC9C',
 ]
 
+// Get the base URL from Vite's environment variables
+const baseUrl = import.meta.env.BASE_URL
+
 export const WheelPage: React.FC = () => {
   const navigate = useNavigate()
   const [spinning, setSpinning] = useState(false)
@@ -219,7 +222,7 @@ export const WheelPage: React.FC = () => {
       audioRef.current.pause()
       audioRef.current = null
     }
-    navigate('/')
+    navigate(baseUrl || '/')
   }
 
   return (

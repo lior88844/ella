@@ -5,12 +5,14 @@ import { storage } from '../utils/storage'
 import homePageImage from '../assets/images/home-page.png'
 import { FaHome } from 'react-icons/fa'
 import { FaTree } from 'react-icons/fa'
+
 export const HomePage: React.FC = () => {
   const navigate = useNavigate()
+  const baseUrl = import.meta.env.BASE_URL
 
   const handleCategorySelect = (category: Category) => {
     storage.setCategory(category)
-    navigate('/wheel')
+    navigate(baseUrl ? `${baseUrl}wheel` : '/wheel')
   }
 
   return (
