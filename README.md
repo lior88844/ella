@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -48,3 +49,7 @@ export default tseslint.config({
   },
 })
 ```
+=======
+# ella
+An app for kids ages 3-4 which gives the game ideas
+>>>>>>> 53dd47dc6566e39dcbe00cff9e020bea88007c50
