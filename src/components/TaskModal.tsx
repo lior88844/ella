@@ -15,7 +15,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2>!הפעילות שלך</h2>
+        <h2>הפעילות שלך</h2>
         <div className="task-content">
           <span className="task-icon">{task.icon}</span>
           <p>{task.name}</p>

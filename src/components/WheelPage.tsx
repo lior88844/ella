@@ -245,7 +245,7 @@ export const WheelPage: React.FC = () => {
       />
 
       <button className="spin-button" onClick={spinWheel} disabled={spinning}>
-        {spinning ? '...מסתובב' : '!סובב את הגלגל'}
+        {spinning ? 'מסתובב' : 'סובב את הגלגל'}
       </button>
 
       {selectedTask && (
