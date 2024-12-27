@@ -11,6 +11,9 @@ import WheelPage from './components/WheelPage'
 import { SplashScreen } from './components/SplashScreen'
 import './styles/main.scss'
 
+// Get the base URL from Vite's environment variables
+const baseUrl = import.meta.env.BASE_URL
+
 const App = () => {
   const [showSplash, setShowSplash] = useState(true)
 
@@ -19,7 +22,7 @@ const App = () => {
   }
 
   return (
-    <Router>
+    <Router basename={baseUrl}>
       <div className="container">
         <Routes>
           <Route path="/" element={<HomePage />} />
