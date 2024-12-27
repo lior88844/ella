@@ -1,0 +1,40 @@
+@import './variables';
+@import './mixins';
+
+@keyframes spin {
+  from {
+    transform: rotate(var(--current-start-rotation));
+  }
+  to {
+    transform: rotate(var(--final-rotation));
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes arrowBounce {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}

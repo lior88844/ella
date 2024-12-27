@@ -1,0 +1,79 @@
+// Noto Serif Hebrew Font face declarations
+@font-face {
+  font-family: 'Noto Sans Hebrew';
+  src: url('../assets/fonts/Noto/NotoSerifHebrew-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Hebrew';
+  src: url('../assets/fonts/Noto/NotoSerifHebrew-Regular.ttf')
+    format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Hebrew';
+  src: url('../assets/fonts/Noto/NotoSerifHebrew-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+// Rubik Font face declarations
+@font-face {
+  font-family: 'Rubik';
+  src: url('../assets/fonts/Rubik/Rubik-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../assets/fonts/Rubik/Rubik-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../assets/fonts/Rubik/Rubik-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../assets/fonts/Rubik/Rubik-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+// Colors
+$primary-color: #ff6b6b;
+$secondary-color: #4ecdc4;
+$accent-color: #ffe66d;
+$background-color: #f4f5f9;
+
+// Typography
+$font-family-noto: 'Noto Sans Hebrew', sans-serif;
+$font-family-rubik: 'Rubik', sans-serif;
+$font-family: $font-family-noto, $font-family-rubik;
+
+$font-weight-light: 300;
+$font-weight-regular: normal;
+$font-weight-medium: 500;
+$font-weight-bold: bold;
+
+$font-size-base: 16px;
+$font-size-large: 24px;
+$font-size-xlarge: 32px;
+
+// Breakpoints
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px;
+
+// Animation
+$transition-speed: 0.3s;
+$wheel-spin-duration: 5s;

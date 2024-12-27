@@ -1,0 +1,29 @@
+@mixin button-base {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  font-family: $font-family-rubik;
+  font-size: $font-size-large;
+  cursor: pointer;
+  transition: transform $transition-speed ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+@mixin responsive($breakpoint) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

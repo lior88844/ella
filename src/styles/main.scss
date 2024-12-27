@@ -1,0 +1,100 @@
+@import 'variables';
+@import 'mixins';
+@import 'animations';
+@import 'wheel';
+@import 'modal';
+@import 'splash';
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+  direction: rtl;
+  text-align: right;
+}
+
+.container {
+  flex: 1;
+  min-height: 100vh;
+  flex-direction: column;
+  direction: rtl;
+}
+
+.home-page {
+  text-align: center;
+
+  h1 {
+    font-size: $font-size-xlarge;
+    font-weight: $font-weight-bold;
+    color: $primary-color;
+    margin-bottom: 2rem;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+    justify-content: center;
+
+    @include responsive($breakpoint-mobile) {
+      flex-direction: column;
+    }
+  }
+
+  .category-button {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 26px;
+    font-family: $font-family-rubik;
+    transition: all 0.3s;
+    .home-page-icon {
+      font-size: 5rem;
+    }
+    &.inside {
+      background-color: #d43a3a;
+      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25), 0 4px 0 rgba(218, 79, 73, 1),
+        0 4px 6px rgba(0, 0, 0, 0.45);
+
+      &:hover {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+        transform: translateY(4px);
+      }
+
+      &:active {
+        background-color: #d14141;
+      }
+    }
+
+    &.outside {
+      background-color: #81ba6b;
+      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25), 0 4px 0 rgba(76, 175, 80, 1),
+        0 4px 6px rgba(0, 0, 0, 0.45);
+
+      &:hover {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+        transform: translateY(4px);
+      }
+
+      &:active {
+        background-color: #45a049;
+      }
+    }
+  }
+  .home-page-image {
+    width: 100%;
+  }
+  .home-page-title {
+    font-size: $font-size-xlarge;
+    color: $primary-color;
+    font-family: $font-family-noto;
+  }
+}
