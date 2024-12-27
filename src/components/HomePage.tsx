@@ -8,11 +8,10 @@ import { FaTree } from 'react-icons/fa'
 
 export const HomePage: React.FC = () => {
   const navigate = useNavigate()
-  const baseUrl = import.meta.env.BASE_URL
 
   const handleCategorySelect = (category: Category) => {
     storage.setCategory(category)
-    navigate(baseUrl ? `${baseUrl}wheel` : '/wheel')
+    navigate('/wheel')
   }
 
   return (
