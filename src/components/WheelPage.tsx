@@ -37,47 +37,6 @@ export const WheelPage: React.FC = () => {
   const filteredTasks = tasks.filter((task) => task.category === category)
   const backgroundImage = category === 'inside' ? bcgHome : bcgOutside
 
-  const playTaskAudio = (task: Task) => {
-    if (audioRef.current) {
-      audioRef.current.pause()
-      audioRef.current = null
-    }
-
-    const audio = new Audio(task.audioPath)
-    audioRef.current = audio
-
-    // Add event listeners for better error handling
-    audio.addEventListener('error', (e) => {
-      console.error('Error loading audio:', e, 'Audio path:', task.audioPath)
-    })
-
-    audio.addEventListener('canplaythrough', () => {
-      // Try to play and handle any autoplay restrictions
-      const playPromise = audio.play()
-
-      if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          console.log('Playback was prevented:', error)
-          // If autoplay is prevented, we can show a play button or handle it differently
-          if (error.name === 'NotAllowedError') {
-            // The audio will now play when the user next interacts with the page
-            const playAudioOnInteraction = () => {
-              audio.play().catch(console.error)
-              document.removeEventListener('touchstart', playAudioOnInteraction)
-              document.removeEventListener('click', playAudioOnInteraction)
-            }
-
-            document.addEventListener('touchstart', playAudioOnInteraction)
-            document.addEventListener('click', playAudioOnInteraction)
-          }
-        })
-      }
-    })
-
-    // Start loading the audio
-    audio.load()
-  }
-
   const drawWheel = (currentRotation: number) => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -179,8 +138,7 @@ export const WheelPage: React.FC = () => {
 
       setTimeout(() => {
         setSelectedTask(task)
-        playTaskAudio(task)
-      }, 700)
+      }, 600)
     }
   }
 
