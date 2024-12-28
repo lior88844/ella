@@ -22,7 +22,7 @@ const COLORS = [
 
 // Get the base URL from Vite's environment variables
 
-const WheelPage: React.FC = () => {
+export const WheelPage: React.FC = () => {
   const navigate = useNavigate()
   const [spinning, setSpinning] = useState(false)
   const [selectedTask, setSelectedTask] = useState<Task | null>(null)
@@ -52,9 +52,26 @@ const WheelPage: React.FC = () => {
     })
 
     audio.addEventListener('canplaythrough', () => {
-      audio.play().catch((error) => {
-        console.error('Error playing audio:', error)
-      })
+      // Try to play and handle any autoplay restrictions
+      const playPromise = audio.play()
+
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.log('Playback was prevented:', error)
+          // If autoplay is prevented, we can show a play button or handle it differently
+          if (error.name === 'NotAllowedError') {
+            // The audio will now play when the user next interacts with the page
+            const playAudioOnInteraction = () => {
+              audio.play().catch(console.error)
+              document.removeEventListener('touchstart', playAudioOnInteraction)
+              document.removeEventListener('click', playAudioOnInteraction)
+            }
+
+            document.addEventListener('touchstart', playAudioOnInteraction)
+            document.addEventListener('click', playAudioOnInteraction)
+          }
+        })
+      }
     })
 
     // Start loading the audio
